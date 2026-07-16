@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+  <meta charset="utf-8"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta content="pt_BR" property="og:locale"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Atendimento</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; }
+    header { background-color: #fff; border-bottom: 1px solid #ddd; }
+    .faixa-superior-site {
+      max-width: 1200px; margin: 0 auto; padding: 15px 20px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+      position: relative;
+    }
+    .marca-site-titulo {
+      font-size: 28px; font-weight: 700; color: #1e1395;
+    }
+    .area-links-menu {
+      display: flex; align-items: center; gap: 30px;
+    }
+    .area-links-menu a {
+      text-decoration: none; color: #2c3e50; font-weight: 500;
+    }
+    /* CORRIGIDO – TEXTO BRANCO GARANTIDO */
+    .botao-menu-destaque {
+      background-color: #ff4a12;
+      color: #ffffff !important;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .indicador-menu-responsivo { display: flex; }
+      .area-links-menu {
+        display: none; flex-direction: column; align-items: flex-start;
+        width: 100%; margin-top: 15px;
+      }
+      .area-links-menu.menu-ativo { display: flex; }
+      .faixa-superior-site { flex-direction: column; align-items: stretch; }
+      .grupo-links-topo {
+        width: 100%; display: flex; justify-content: space-between; align-items: center;
+      }
+    }
+    .secao-principal-atendimento {
+      background-color: #1e1395; color: white; padding: 90px 20px;
+    }
+    .secao-principal-atendimento .container-destaque-conteudo {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .secao-principal-atendimento img {
+      width: 420px; max-width: 100%;
+      border-radius: 20px;
+      clip-path: polygon(0% 10%, 100% 0%, 100% 90%, 0% 100%);
+    }
+    .bloco-textos-destaque {
+      max-width: 500px;
+    }
+    .bloco-textos-destaque h1 { font-size: 32px; margin-bottom: 25px; }
+    .bloco-textos-destaque p { font-size: 15px; margin-bottom: 28px; line-height: 1.6; }
+    .bloco-textos-destaque .botao-chamada-atendimento {
+      background-color: #ff4a12; color: white; padding: 12px 28px;
+      border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px;
+      font-size: 14px; padding: 12px 28px;
+    }
+    @media (max-width: 768px) {
+      .secao-principal-atendimento .container-destaque-conteudo {
+        flex-direction: column; text-align: center; gap: 20px;
+      }
+      .secao-principal-atendimento img { width: 300px; margin-bottom: 10px; }
+      .bloco-textos-destaque h1 { font-size: 24px; }
+      .bloco-textos-destaque p { font-size: 14px; }
+    }
+    .controle-menu-mobile {
+      display: none; flex-direction: column; cursor: pointer; gap: 4px;
+    }
+    .controle-menu-mobile span {
+      width: 25px; height: 3px; background: #1e1395; margin: 2px 0;  border-radius: 2px;
+    }
+    @media (max-width: 768px) {
+      .controle-menu-mobile {
+        display: flex; position: absolute; right: 20px; top: 18px;
+      }
+      .area-links-menu {
+        display: none; flex-direction: column; align-items: flex-start;
+        width: 100%; margin-top: 60px; gap: 16px;
+      }
+      .area-links-menu.menu-ativo { display: flex; }
+      .faixa-superior-site { flex-direction: column; align-items: stretch; }
+      .grupo-logotipo-topo {
+        width: 100%; display: flex; justify-content: space-between; align-items: center;
+      }
+    }
+    .faixa-chamada-contrato {
+      background-color: #182333;
+      color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .container-chamada-contrato {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .faixa-chamada-contrato h2 {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .faixa-chamada-contrato p {
+      font-size: 16px;
+      margin-bottom: 28px;
+      line-height: 1.6;
+      color: #dbe2ef;
+    }
+    .grupo-botoes-contato {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+    .botao-acao-contato {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+      font-size: 15px;
+    }
+    .botao-acao-whatsapp {
+      background-color: #3b82f6;
+      color: #fff;
+    }
+    .botao-acao-whatsapp:hover {
+      background-color: #2563eb;
+      transform: translateY(-2px);
+    }
+    .botao-acao-ligacao {
+      border: 2px solid #fff;
+      color: #fff;
+    }
+    .botao-acao-ligacao:hover {
+      background-color: #fff;
+      color: #182333;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .faixa-chamada-contrato h2 { font-size: 24px; }
+      .faixa-chamada-contrato p { font-size: 15px; }
+    }
+    .area-rodape-principal {
+      background-color: #1e1395;
+      color: #ffffff;
+      padding: 60px 20px 20px;
+      border-top: 4px solid #ffffff;
+      font-size: 15px;
+    }
+    .grade-conteudo-rodape {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+    .bloco-informacoes-rodape h4 {
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .bloco-informacoes-rodape p {
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+    .bloco-informacoes-rodape ul {
+      list-style: none;
+      padding: 0;
+    }
+    .bloco-informacoes-rodape ul li {
+      margin-bottom: 8px;
+    }
+    .bloco-informacoes-rodape ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .bloco-informacoes-rodape ul li a:hover {
+      color: #ff4a12;
+    }
+    .titulo-escritorio-rodape {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+    .links-sociais-rodape a {
+      display: inline-block;
+      font-size: 18px;
+      color: #ffffff;
+      margin-right: 10px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .links-sociais-rodape a:hover {
+      color: #ff4a12;
+      transform: translateY(-2px);
+    }
+    .formulario-contato-rodape {
+      display: flex;
+      margin-top: 10px;
+    }
+    .formulario-contato-rodape input {
+      flex: 1;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      outline: none;
+      font-size: 14px;
+    }
+    .formulario-contato-rodape button {
+      background-color: #ff4a12;
+      border: none;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .formulario-contato-rodape button:hover {
+      background-color: #ff6933;
+    }
+    .texto-legislacao-rodape {
+      max-width: 1000px;
+      margin: 40px auto 0;
+      text-align: center;
+      font-size: 14px;
+      color: #e6e6e6;
+      line-height: 1.8;
+    }
+    .texto-legislacao-rodape strong {
+      color: #ffffff;
+    }
+    .assinatura-final-rodape {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      margin-top: 30px;
+      padding-top: 15px;
+      font-size: 13px;
+      color: #e0e0e0;
+    }
+    @media (max-width: 768px) {
+      .grade-conteudo-rodape {
+        text-align: center;
+      }
+      .formulario-contato-rodape {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .formulario-contato-rodape input,
+      .formulario-contato-rodape button {
+        border-radius: 30px;
+        width: 100%;
+      }
+    }
+    .bloco-atalhos-servicos {
+      background-color: #f8f8f8;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .grade-atalhos-servicos {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      align--items: center;
+      justify-content: center;
+    }
+    .item-atalho-servico {
+      text-align: center;
+    }
+    .item-atalho-servico .material-icons {
+      font-size: 48px;
+      color: #1E1395;
+      margin-bottom: 15px;
+    }
+    .item-atalho-servico h4 {
+      font-size: 16px;
+      color: #222;
+      font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .grade-atalhos-servicos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+      .item-atalho-servico h4 {
+        font-size: 15px;
+      }
+    }
+    .faixa-marcas-clientes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px 0;
+    }
+    .faixa-marcas-clientes img {
+      max-height: 50px;
+      height: auto;
+      width: auto;
+      display: block;
+    }
+  </style>
+ </head>
+ <body>
+<header>
+  <div class="faixa-superior-site">
+    <div class="grupo-logotipo-topo">
+      <div class="marca-site-titulo">
+        <h1 style="margin: 0; font-size: 28px; color: #1e1395; font-weight: 700;">Atendimento</h1>
+      </div>
+      <div class="controle-menu-mobile" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav class="area-links-menu" id="menu-navegacao-principal">
+      <a href="#">Home</a>
+      <a href="#sessao-detalhes-boletos">Sobre</a>
+      <a href="#sessao-servicos-regularizacao">Nossas Soluções</a>
+      <a class="botao-menu-destaque" href="https://api.whatsapp.com/send/?phone=5514982312119&text=Ol%C3%A1%2C+gostaria+de++atendimento+%21&type=phone_number&app_absent=0">Atendimento Online</a>
+    </nav>
+  </div>
+</header>
+
+<section class="secao-principal-atendimento">
+  <div class="container-destaque-conteudo">
+    <div class="bloco-textos-destaque">
+      <h1>Central de Atendimento</h1>
+      <p style="font-size: 18px;">Solicite Aqui Sua <strong>2 Via Atualizada.</strong> Fale com nosso Suporte Online</p>
+      <a class="botao-chamada-atendimento" href="https://api.whatsapp.com/send/?phone=5514982312119&text=Iniciar%20Atendimento&type=phone_number&app_absent=0">ATENDIMENTO ONLINE</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="bloco-atalhos-servicos">
+  <div class="grade-atalhos-servicos">
+
+    <div class="item-atalho-servico">
+      <span class="material-icons">support_agent</span>
+      <h4>Atendimento</h4>
+    </div>
+
+    <div class="item-atalho-servico">
+      <span class="material-icons">receipt_long</span>
+      <h4>2ª Via de Boleto</h4>
+    </div>
+
+    <div class="item-atalho-servico">
+      <span class="material-icons">task_alt</span>
+      <h4>Quitar Contrato</h4>
+    </div>
+
+    <div class="item-atalho-servico">
+      <span class="material-icons">handshake</span>
+      <h4>Renegociação de Contrato</h4>
+    </div>
+
+  </div>
+</section>
+
+<section id="sessao-detalhes-boletos" style="background-color: #fff; padding: 60px 20px;">
+  <div class="container-explicacao-boletos" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+    <div style="flex: 1; min-width: 300px;">
+      <h2 style="color: #1e1395; font-size: 28px; font-weight: 700; margin-bottom: 20px;">2ª Via de Boletos de Forma Simples e Rápida</h2>
+      <p style="font-size: 16px; line-height: 1.7; color: #444;">
+          Você pode solicitar a sua segunda via de boletos do tipo Individual, destinado a qualquer pessoa física sem dependentes. O processo é simples, direto e pensado para facilitar seu acesso ao boleto atualizado sempre que precisar.
+      </p>
+      <p style="font-size: 16px; line-height: 1.7; color: #444; margin-top: 15px;">
+          Também oferecemos a emissão da segunda via para o modelo Familiar, indicado para dois ou mais beneficiários. Assim, você garante que todos vinculados mantenham seus boletos em dia de forma prática e organizada.
+      </p>
+    </div>
+    <div style="flex: 1; min-width: 300px; text-align: center;">
+      <img
+        alt="Família acessando a área do cliente online"
+        title="Família usando a área do cliente para emissão de boletos"
+        src="imagens/familia.png"
+        style="max-width: 100%; border-radius: 20px;"/>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('menu-navegacao-principal').classList.toggle('menu-ativo');
+  }
+</script>
+
+<section id="sessao-servicos-regularizacao" style="background-color: #f8f8f8; padding: 60px 20px;">
+  <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+    <h2 style="color: #333333; font-size: 28px; font-weight: 700; margin-bottom: 40px;">
+      Serviços para Regularizar sua Situação
+    </h2>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+
+      <div style="flex: 1 1 300px; background: white; border: 1px solid #333333; border-radius: 12px; padding: 30px;">
+        <span class="material-icons" style="font-size:48px; color:#333333; margin-bottom:20px;">support_agent</span>
+        <h3 style="color: #333333; font-size: 20px; margin-bottom: 15px;">Renegociação de Dívida</h3>
+        <p style="color: #444; font-size: 15px;">
+          Verificamos seu contrato e buscamos alternativas mais vantajosas para o pagamento, evitando bloqueios e reduzindo o impacto no seu orçamento.
+        </p>
+      </div>
+
+      <div style="flex: 1 1 300px; background: white; border: 1px solid #333333; border-radius: 12px; padding: 30px;">
+        <span class="material-icons" style="font-size:48px; color:#333333; margin-bottom:20px;">description</span>
+        <h3 style="color: #333333; font-size: 20px; margin-bottom: 15px;">2ª Via e Boletos Atualizados</h3>
+        <p style="color: #444; font-size: 15px;">
+          Geramos boletos atualizados para acordos, renegociações ou quitações, oferecendo toda a orientação necessária durante o processo.
+        </p>
+      </div>
+
+      <div style="flex: 1 1 300px; background: white; border: 1px solid #333333; border-radius: 12px; padding: 30px;">
+        <span class="material-icons" style="font-size:48px; color:#333333; margin-bottom:20px;">task_alt</span>
+        <h3 style="color: #333333; font-size: 20px; margin-bottom: 15px;">Acordos e Quitação</h3>
+        <p style="color: #444; font-size: 15px;">
+          Realizamos negociações diretas com os credores para garantir descontos reais, ajudando você a encerrar sua dívida com segurança e total transparência.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="faixa-chamada-contrato">
+  <div class="container-chamada-contrato">
+    <h2>Precisa Regularizar seu Contrato?</h2>
+
+    <p>
+      Entre em contato com nossa equipe e receba orientação imediata sobre renegociação de dívidas, emissão de boletos atualizados ou acordos para quitação do seu contrato.
+    </p>
+
+    <div class="grupo-botoes-contato">
+
+      <a
+        href="https://api.whatsapp.com/send/?phone=5514982312119&text=Olá,+preciso+de+ajuda+para+regularizar+meu+contrato."
+        target="_blank"
+        class="botao-acao-contato botao-acao-whatsapp">
+        <span class="material-icons" style="vertical-align:middle; font-size:20px;">chat</span>
+        Falar no WhatsApp
+      </a>
+
+      <a href="tel:+5514982312119" class="botao-acao-contato botao-acao-ligacao">
+        <span class="material-icons" style="vertical-align:middle; font-size:20px;">call</span>
+        Ligação Direta
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer class="area-rodape-principal">
+  <div class="grade-conteudo-rodape">
+    <div class="bloco-informacoes-rodape bloco-descricao-escritorio">
+      <h3 class="titulo-escritorio-rodape">Jose Henrique Avanzi Sociedade Individual de Advocacia</h3>
+      <p>
+        Atendimento jurídico especializado na regularização de contratos e na renegociação de dívidas, oferecendo segurança, clareza e total orientação ao cliente.
+      </p>
+      <div class="links-sociais-rodape">
+        <a href="#" aria-label="Facebook">
+          <span class="material-icons" style="font-size:28px; color:#ffffff;">public</span>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <span class="material-icons" style="font-size:28px; color:#ffffff;">photo_camera</span>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <span class="material-icons" style="font-size:28px; color:#ffffff;">work</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="bloco-informacoes-rodape">
+      <h4>Serviços</h4>
+      <ul>
+        <li><a href="#sessao-servicos-regularizacao">Renegociação de Dívida</a></li>
+        <li><a href="#sessao-detalhes-boletos">2ª Via de Boleto</a></li>
+        <li><a href="#sessao-detalhes-boletos">Quitar Contrato</a></li>
+        <li><a href="#sessao-detalhes-boletos">Atendimento Especializado</a></li>
+      </ul>
+    </div>
+
+    <div class="bloco-informacoes-rodape">
+      <h4>Informações</h4>
+      <ul>
+        <li><a href="#">Dúvidas Frequentes</a></li>
+        <li><a href="#">Termos de Uso</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+      </ul>
+    </div>
+
+    <div class="bloco-informacoes-rodape bloco-contato-rodape">
+      <h4>Contato</h4>
+      <p>Entre em contato para orientações sobre renegociação e regularização de contratos.</p>
+      <p style="line-height:1.6;">
+        CNPJ: 59.440.937/0001-20<br>
+        Rua Sampaio Viana, 125<br>
+        Bairro Paraiso - São Paulo/SP - CEP 04004-000
+      </p>
+    </div>
+  </div>
+
+  <div class="texto-legislacao-rodape">
+    <p><strong>Razão Social:</strong> Jose Henrique Avanzi Sociedade Individual de Advocacia</p>
+    <p><strong>CNPJ:</strong> 59.440.937/0001-20</p>
+    <p><strong>Endereço:</strong> Rua Sampaio Viana, 125 - Bairro Paraiso - São Paulo - SP - 04004-000</p>
+  </div>
+
+  <div class="assinatura-final-rodape">
+    <p>© 2025 Jose Henrique Avanzi Sociedade Individual de Advocacia. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<a href="https://api.whatsapp.com/send/?phone=5514982312119&text=Ol%C3%A1%2C+gostaria+de++atendimento+%21&type=phone_number&app_absent=0" style="
+  position: fixed;
+  bottom: 150px;
+  right: 20px;
+  z-index: 9999;
+" target="_blank">
+  <img
+    alt="Atalho para conversa no WhatsApp"
+    title="Clique para iniciar atendimento pelo WhatsApp"
+    src="imagens/whatsapp.png"
+    style="width: 60px; height: 60px;"/>
+</a>
+</body>
+</html>
