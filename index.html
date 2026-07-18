@@ -1,543 +1,1059 @@
 <!DOCTYPE html>
-<html lang="pt-br">
- <head>
-  <meta charset="utf-8"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Canal de atendimento da Jose Henrique Avanzi Sociedade Individual de Advocacia para orientação e suporte na solicitação de segunda via de boleto.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Atendimento | Jose Henrique Avanzi Sociedade Individual de Advocacia">
+  <meta property="og:description" content="Orientação e suporte para solicitação de segunda via de boleto.">
+  <title>Atendimento | Jose Henrique Avanzi Sociedade Individual de Advocacia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <meta content="pt_BR" property="og:locale"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Atendimento</title>
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; }
-    header { background-color: #fff; border-bottom: 1px solid #ddd; }
-    .faixa-superior-site {
-      max-width: 1200px; margin: 0 auto; padding: 15px 20px;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
-      position: relative;
+    :root {
+      --primary: #1e1395;
+      --primary-dark: #150d72;
+      --accent: #ff4a12;
+      --text: #243047;
+      --muted: #667085;
+      --light: #f7f8fc;
+      --border: #e4e7ec;
+      --white: #ffffff;
+      --footer: #182333;
+      --success: #18864b;
+      --shadow: 0 12px 32px rgba(20, 24, 40, 0.08);
     }
-    .marca-site-titulo {
-      font-size: 28px; font-weight: 700; color: #1e1395;
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .area-links-menu {
-      display: flex; align-items: center; gap: 30px;
+
+    html {
+      scroll-behavior: smooth;
     }
-    .area-links-menu a {
-      text-decoration: none; color: #2c3e50; font-weight: 500;
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
     }
-    /* CORRIGIDO – TEXTO BRANCO GARANTIDO */
-    .botao-menu-destaque {
-      background-color: #ff4a12;
-      color: #ffffff !important;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-weight: 600;
-      text-decoration: none;
+
+    a {
+      color: inherit;
     }
-    @media (max-width: 768px) {
-      .indicador-menu-responsivo { display: flex; }
-      .area-links-menu {
-        display: none; flex-direction: column; align-items: flex-start;
-        width: 100%; margin-top: 15px;
-      }
-      .area-links-menu.menu-ativo { display: flex; }
-      .faixa-superior-site { flex-direction: column; align-items: stretch; }
-      .grupo-links-topo {
-        width: 100%; display: flex; justify-content: space-between; align-items: center;
-      }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
-    .secao-principal-atendimento {
-      background-color: #1e1395; color: white; padding: 90px 20px;
-    }
-    .secao-principal-atendimento .container-destaque-conteudo {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: center;
-      gap: 40px; flex-wrap: wrap;
-    }
-    .secao-principal-atendimento img {
-      width: 420px; max-width: 100%;
-      border-radius: 20px;
-      clip-path: polygon(0% 10%, 100% 0%, 100% 90%, 0% 100%);
-    }
-    .bloco-textos-destaque {
-      max-width: 500px;
-    }
-    .bloco-textos-destaque h1 { font-size: 32px; margin-bottom: 25px; }
-    .bloco-textos-destaque p { font-size: 15px; margin-bottom: 28px; line-height: 1.6; }
-    .bloco-textos-destaque .botao-chamada-atendimento {
-      background-color: #ff4a12; color: white; padding: 12px 28px;
-      border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px;
-      font-size: 14px; padding: 12px 28px;
-    }
-    @media (max-width: 768px) {
-      .secao-principal-atendimento .container-destaque-conteudo {
-        flex-direction: column; text-align: center; gap: 20px;
-      }
-      .secao-principal-atendimento img { width: 300px; margin-bottom: 10px; }
-      .bloco-textos-destaque h1 { font-size: 24px; }
-      .bloco-textos-destaque p { font-size: 14px; }
-    }
-    .controle-menu-mobile {
-      display: none; flex-direction: column; cursor: pointer; gap: 4px;
-    }
-    .controle-menu-mobile span {
-      width: 25px; height: 3px; background: #1e1395; margin: 2px 0;  border-radius: 2px;
-    }
-    @media (max-width: 768px) {
-      .controle-menu-mobile {
-        display: flex; position: absolute; right: 20px; top: 18px;
-      }
-      .area-links-menu {
-        display: none; flex-direction: column; align-items: flex-start;
-        width: 100%; margin-top: 60px; gap: 16px;
-      }
-      .area-links-menu.menu-ativo { display: flex; }
-      .faixa-superior-site { flex-direction: column; align-items: stretch; }
-      .grupo-logotipo-topo {
-        width: 100%; display: flex; justify-content: space-between; align-items: center;
-      }
-    }
-    .faixa-chamada-contrato {
-      background-color: #182333;
-      color: #ffffff;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .container-chamada-contrato {
-      max-width: 1000px;
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
     }
-    .faixa-chamada-contrato h2 {
-      font-size: 30px;
-      font-weight: 700;
-      margin-bottom: 12px;
+
+    .top-notice {
+      background: var(--primary-dark);
+      color: #fff;
+      font-size: 13px;
+      text-align: center;
+      padding: 8px 20px;
     }
-    .faixa-chamada-contrato p {
-      font-size: 16px;
-      margin-bottom: 28px;
-      line-height: 1.6;
-      color: #dbe2ef;
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
     }
-    .grupo-botoes-contato {
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-symbol {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .brand-text strong {
+      display: block;
+      color: var(--primary);
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: #344054;
+    }
+
+    .nav a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 0;
+      border-radius: 10px;
+      padding: 13px 22px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: var(--accent);
+      box-shadow: 0 8px 22px rgba(255, 74, 18, .25);
+    }
+
+    .btn-secondary {
+      color: var(--primary);
+      background: #fff;
+      border: 1px solid #d7dbea;
+    }
+
+    .mobile-button {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, .13), transparent 27%),
+        linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #fff;
+      padding: 92px 0 84px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.24);
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      background: #57d68d;
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #ff7448;
+    }
+
+    .hero p {
+      max-width: 690px;
+      color: #e8e9f4;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
+      gap: 14px;
     }
-    .botao-acao-contato {
-      display: inline-block;
-      padding: 14px 28px;
-      border-radius: 999px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s ease;
-      font-size: 15px;
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 26px;
+      color: #e9ebf7;
+      font-size: 13px;
     }
-    .botao-acao-whatsapp {
-      background-color: #3b82f6;
-      color: #fff;
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
     }
-    .botao-acao-whatsapp:hover {
-      background-color: #2563eb;
-      transform: translateY(-2px);
-    }
-    .botao-acao-ligacao {
-      border: 2px solid #fff;
-      color: #fff;
-    }
-    .botao-acao-ligacao:hover {
-      background-color: #fff;
-      color: #182333;
-      transform: translateY(-2px);
-    }
-    @media (max-width: 768px) {
-      .faixa-chamada-contrato h2 { font-size: 24px; }
-      .faixa-chamada-contrato p { font-size: 15px; }
-    }
-    .area-rodape-principal {
-      background-color: #1e1395;
-      color: #ffffff;
-      padding: 60px 20px 20px;
-      border-top: 4px solid #ffffff;
-      font-size: 15px;
-    }
-    .grade-conteudo-rodape {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-    }
-    .bloco-informacoes-rodape h4 {
+
+    .trust-item .material-icons {
       font-size: 18px;
-      color: #ffffff;
-      margin-bottom: 15px;
-      font-weight: 600;
+      color: #7ee2a8;
     }
-    .bloco-informacoes-rodape p {
-      line-height: 1.6;
-      color: #e0e0e0;
+
+    .hero-card {
+      background: #fff;
+      color: var(--text);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .22);
     }
-    .bloco-informacoes-rodape ul {
-      list-style: none;
-      padding: 0;
-    }
-    .bloco-informacoes-rodape ul li {
+
+    .hero-card h2 {
+      font-size: 22px;
+      color: var(--primary);
       margin-bottom: 8px;
     }
-    .bloco-informacoes-rodape ul li a {
-      color: #e0e0e0;
-      text-decoration: none;
-      transition: color 0.3s ease;
+
+    .hero-card > p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
     }
-    .bloco-informacoes-rodape ul li a:hover {
-      color: #ff4a12;
-    }
-    .titulo-escritorio-rodape {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #ffffff;
-      letter-spacing: 0.5px;
-    }
-    .links-sociais-rodape a {
-      display: inline-block;
-      font-size: 18px;
-      color: #ffffff;
-      margin-right: 10px;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-    .links-sociais-rodape a:hover {
-      color: #ff4a12;
-      transform: translateY(-2px);
-    }
-    .formulario-contato-rodape {
+
+    .service-option {
       display: flex;
-      margin-top: 10px;
+      gap: 14px;
+      align-items: flex-start;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 16px;
+      margin-top: 12px;
     }
-    .formulario-contato-rodape input {
-      flex: 1;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 30px 0 0 30px;
-      outline: none;
-      font-size: 14px;
+
+    .service-option .material-icons {
+      color: var(--primary);
+      background: #eef0ff;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
     }
-    .formulario-contato-rodape button {
-      background-color: #ff4a12;
-      border: none;
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 0 30px 30px 0;
-      cursor: pointer;
-      transition: 0.3s;
+
+    .service-option strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 3px;
     }
-    .formulario-contato-rodape button:hover {
-      background-color: #ff6933;
-    }
-    .texto-legislacao-rodape {
-      max-width: 1000px;
-      margin: 40px auto 0;
-      text-align: center;
-      font-size: 14px;
-      color: #e6e6e6;
-      line-height: 1.8;
-    }
-    .texto-legislacao-rodape strong {
-      color: #ffffff;
-    }
-    .assinatura-final-rodape {
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.3);
-      margin-top: 30px;
-      padding-top: 15px;
+
+    .service-option span {
+      display: block;
+      color: var(--muted);
       font-size: 13px;
-      color: #e0e0e0;
     }
-    @media (max-width: 768px) {
-      .grade-conteudo-rodape {
-        text-align: center;
-      }
-      .formulario-contato-rodape {
+
+    .section {
+      padding: 78px 0;
+    }
+
+    .section-light {
+      background: var(--light);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-heading small {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.2;
+      margin: 10px 0 12px;
+      color: #101828;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      box-shadow: 0 4px 14px rgba(16, 24, 40, .04);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--primary);
+      background: #eef1ff;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 9px;
+      color: #101828;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .step h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #eef1ff;
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-content h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      color: #101828;
+      margin-bottom: 16px;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .notice-box {
+      background: #f4f3ff;
+      border-left: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 18px;
+      margin-top: 22px;
+      color: #3f3a73;
+      font-size: 14px;
+    }
+
+    .faq {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    details {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 0 20px;
+      margin-bottom: 12px;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 20px 42px 20px 0;
+      position: relative;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 2px;
+      top: 15px;
+      font-size: 26px;
+      color: var(--primary);
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    details p {
+      color: var(--muted);
+      font-size: 14px;
+      padding: 0 0 20px;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #fff;
+      border-radius: 24px;
+      padding: 54px 40px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #e4e6f4;
+      max-width: 680px;
+      margin: 0 auto 26px;
+    }
+
+    .legal-section {
+      padding: 65px 0;
+    }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .legal-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px;
+      background: #fff;
+    }
+
+    .legal-card h2 {
+      color: #101828;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .legal-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: var(--footer);
+      color: #fff;
+      padding: 58px 0 22px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr 1fr;
+      gap: 42px;
+    }
+
+    .footer-brand h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p,
+    .footer-column p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 9px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.16);
+      margin-top: 38px;
+      padding-top: 20px;
+      color: #aeb8c7;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 24px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #20c66b;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      box-shadow: 0 12px 28px rgba(0,0,0,.22);
+      z-index: 1200;
+    }
+
+    .whatsapp-float .material-icons {
+      font-size: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        padding: 20px;
         flex-direction: column;
-        gap: 10px;
+        align-items: stretch;
       }
-      .formulario-contato-rodape input,
-      .formulario-contato-rodape button {
-        border-radius: 30px;
+
+      .nav.open {
+        display: flex;
+      }
+
+      .mobile-button {
+        display: inline-flex;
+      }
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 68px;
+      }
+
+      .cards,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .legal-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .brand-text strong {
+        font-size: 14px;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .hero {
+        padding: 58px 0;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .hero-card {
+        padding: 22px;
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .cta {
+        padding: 42px 22px;
+        border-radius: 18px;
+      }
+
+      .hero-actions .btn {
         width: 100%;
       }
     }
-    .bloco-atalhos-servicos {
-      background-color: #f8f8f8;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .grade-atalhos-servicos {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      align--items: center;
-      justify-content: center;
-    }
-    .item-atalho-servico {
-      text-align: center;
-    }
-    .item-atalho-servico .material-icons {
-      font-size: 48px;
-      color: #1E1395;
-      margin-bottom: 15px;
-    }
-    .item-atalho-servico h4 {
-      font-size: 16px;
-      color: #222;
-      font-weight: 600;
-    }
-    @media (max-width: 768px) {
-      .grade-atalhos-servicos {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-      }
-      .item-atalho-servico h4 {
-        font-size: 15px;
-      }
-    }
-    .faixa-marcas-clientes {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px 0;
-    }
-    .faixa-marcas-clientes img {
-      max-height: 50px;
-      height: auto;
-      width: auto;
-      display: block;
-    }
   </style>
- </head>
- <body>
-<header>
-  <div class="faixa-superior-site">
-    <div class="grupo-logotipo-topo">
-      <div class="marca-site-titulo">
-        <h1 style="margin: 0; font-size: 28px; color: #1e1395; font-weight: 700;">Atendimento</h1>
-      </div>
-      <div class="controle-menu-mobile" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-    <nav class="area-links-menu" id="menu-navegacao-principal">
-      <a href="#">Home</a>
-      <a href="#sessao-detalhes-boletos">Sobre</a>
-      <a href="#sessao-servicos-regularizacao">Nossas Soluções</a>
-      <a class="botao-menu-destaque" href="https://api.whatsapp.com/send/?phone=5514982312119&text=Ol%C3%A1%2C+gostaria+de++atendimento+%21&type=phone_number&app_absent=0">Atendimento Online</a>
-    </nav>
+</head>
+
+<body>
+  <div class="top-notice">
+    Atendimento prestado por Jose Henrique Avanzi Sociedade Individual de Advocacia.
   </div>
-</header>
 
-<section class="secao-principal-atendimento">
-  <div class="container-destaque-conteudo">
-    <div class="bloco-textos-destaque">
-      <h1>Central de Atendimento</h1>
-      <p style="font-size: 18px;">Solicite Aqui Sua <strong>2 Via Atualizada.</strong> Fale com nosso Suporte Online</p>
-      <a class="botao-chamada-atendimento" href="https://api.whatsapp.com/send/?phone=5514982312119&text=Iniciar%20Atendimento&type=phone_number&app_absent=0">ATENDIMENTO ONLINE</a>
-    </div>
-  </div>
-</section>
-
-
-<section class="bloco-atalhos-servicos">
-  <div class="grade-atalhos-servicos">
-
-    <div class="item-atalho-servico">
-      <span class="material-icons">support_agent</span>
-      <h4>Atendimento</h4>
-    </div>
-
-    <div class="item-atalho-servico">
-      <span class="material-icons">receipt_long</span>
-      <h4>2ª Via de Boleto</h4>
-    </div>
-
-    <div class="item-atalho-servico">
-      <span class="material-icons">task_alt</span>
-      <h4>Quitar Contrato</h4>
-    </div>
-
-    <div class="item-atalho-servico">
-      <span class="material-icons">handshake</span>
-      <h4>Renegociação de Contrato</h4>
-    </div>
-
-  </div>
-</section>
-
-<section id="sessao-detalhes-boletos" style="background-color: #fff; padding: 60px 20px;">
-  <div class="container-explicacao-boletos" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
-    <div style="flex: 1; min-width: 300px;">
-      <h2 style="color: #1e1395; font-size: 28px; font-weight: 700; margin-bottom: 20px;">2ª Via de Boletos de Forma Simples e Rápida</h2>
-      <p style="font-size: 16px; line-height: 1.7; color: #444;">
-          Você pode solicitar a sua segunda via de boletos do tipo Individual, destinado a qualquer pessoa física sem dependentes. O processo é simples, direto e pensado para facilitar seu acesso ao boleto atualizado sempre que precisar.
-      </p>
-      <p style="font-size: 16px; line-height: 1.7; color: #444; margin-top: 15px;">
-          Também oferecemos a emissão da segunda via para o modelo Familiar, indicado para dois ou mais beneficiários. Assim, você garante que todos vinculados mantenham seus boletos em dia de forma prática e organizada.
-      </p>
-    </div>
-    <div style="flex: 1; min-width: 300px; text-align: center;">
-      <img
-        alt="Família acessando a área do cliente online"
-        title="Família usando a área do cliente para emissão de boletos"
-        src="imagens/familia.png"
-        style="max-width: 100%; border-radius: 20px;"/>
-    </div>
-  </div>
-</section>
-
-<script>
-  function toggleMenu() {
-    document.getElementById('menu-navegacao-principal').classList.toggle('menu-ativo');
-  }
-</script>
-
-<section id="sessao-servicos-regularizacao" style="background-color: #f8f8f8; padding: 60px 20px;">
-  <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-    <h2 style="color: #333333; font-size: 28px; font-weight: 700; margin-bottom: 40px;">
-      Serviços para Regularizar sua Situação
-    </h2>
-
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-
-      <div style="flex: 1 1 300px; background: white; border: 1px solid #333333; border-radius: 12px; padding: 30px;">
-        <span class="material-icons" style="font-size:48px; color:#333333; margin-bottom:20px;">support_agent</span>
-        <h3 style="color: #333333; font-size: 20px; margin-bottom: 15px;">Renegociação de Dívida</h3>
-        <p style="color: #444; font-size: 15px;">
-          Verificamos seu contrato e buscamos alternativas mais vantajosas para o pagamento, evitando bloqueios e reduzindo o impacto no seu orçamento.
-        </p>
-      </div>
-
-      <div style="flex: 1 1 300px; background: white; border: 1px solid #333333; border-radius: 12px; padding: 30px;">
-        <span class="material-icons" style="font-size:48px; color:#333333; margin-bottom:20px;">description</span>
-        <h3 style="color: #333333; font-size: 20px; margin-bottom: 15px;">2ª Via e Boletos Atualizados</h3>
-        <p style="color: #444; font-size: 15px;">
-          Geramos boletos atualizados para acordos, renegociações ou quitações, oferecendo toda a orientação necessária durante o processo.
-        </p>
-      </div>
-
-      <div style="flex: 1 1 300px; background: white; border: 1px solid #333333; border-radius: 12px; padding: 30px;">
-        <span class="material-icons" style="font-size:48px; color:#333333; margin-bottom:20px;">task_alt</span>
-        <h3 style="color: #333333; font-size: 20px; margin-bottom: 15px;">Acordos e Quitação</h3>
-        <p style="color: #444; font-size: 15px;">
-          Realizamos negociações diretas com os credores para garantir descontos reais, ajudando você a encerrar sua dívida com segurança e total transparência.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="faixa-chamada-contrato">
-  <div class="container-chamada-contrato">
-    <h2>Precisa Regularizar seu Contrato?</h2>
-
-    <p>
-      Entre em contato com nossa equipe e receba orientação imediata sobre renegociação de dívidas, emissão de boletos atualizados ou acordos para quitação do seu contrato.
-    </p>
-
-    <div class="grupo-botoes-contato">
-
-      <a
-        href="https://api.whatsapp.com/send/?phone=5514982312119&text=Olá,+preciso+de+ajuda+para+regularizar+meu+contrato."
-        target="_blank"
-        class="botao-acao-contato botao-acao-whatsapp">
-        <span class="material-icons" style="vertical-align:middle; font-size:20px;">chat</span>
-        Falar no WhatsApp
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Página inicial">
+        <span class="brand-symbol">
+          <span class="material-icons">gavel</span>
+        </span>
+        <span class="brand-text">
+          <strong>Jose Henrique Avanzi</strong>
+          <span>Sociedade Individual de Advocacia</span>
+        </span>
       </a>
 
-      <a href="tel:+5514982312119" class="botao-acao-contato botao-acao-ligacao">
-        <span class="material-icons" style="vertical-align:middle; font-size:20px;">call</span>
-        Ligação Direta
-      </a>
+      <button class="mobile-button" type="button" aria-label="Abrir menu" aria-controls="main-menu" aria-expanded="false">
+        <span class="material-icons">menu</span>
+      </button>
 
+      <nav class="nav" id="main-menu" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Atendimento</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a href="#empresa">Empresa</a>
+        <a class="btn btn-primary" href="https://api.whatsapp.com/send/?phone=5514982312119&text=Olá%2C%20gostaria%20de%20orientação%20sobre%20segunda%20via%20de%20boleto.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
+          <span class="material-icons">chat</span>
+          Falar no WhatsApp
+        </a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<footer class="area-rodape-principal">
-  <div class="grade-conteudo-rodape">
-    <div class="bloco-informacoes-rodape bloco-descricao-escritorio">
-      <h3 class="titulo-escritorio-rodape">Jose Henrique Avanzi Sociedade Individual de Advocacia</h3>
-      <p>
-        Atendimento jurídico especializado na regularização de contratos e na renegociação de dívidas, oferecendo segurança, clareza e total orientação ao cliente.
-      </p>
-      <div class="links-sociais-rodape">
-        <a href="#" aria-label="Facebook">
-          <span class="material-icons" style="font-size:28px; color:#ffffff;">public</span>
-        </a>
-        <a href="#" aria-label="Instagram">
-          <span class="material-icons" style="font-size:28px; color:#ffffff;">photo_camera</span>
-        </a>
-        <a href="#" aria-label="LinkedIn">
-          <span class="material-icons" style="font-size:28px; color:#ffffff;">work</span>
-        </a>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Canal de orientação e atendimento
+          </div>
+
+          <h1>Suporte para solicitar sua <span>segunda via de boleto</span></h1>
+
+          <p>
+            Receba orientação para localizar os canais adequados, verificar as informações necessárias e solicitar a segunda via do seu boleto com mais clareza.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://api.whatsapp.com/send/?phone=5514982312119&text=Olá%2C%20gostaria%20de%20orientação%20sobre%20segunda%20via%20de%20boleto.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
+              <span class="material-icons">chat</span>
+              Iniciar atendimento
+            </a>
+
+            <a class="btn btn-secondary" href="#como-funciona">
+              Como funciona
+            </a>
+          </div>
+
+          <div class="hero-trust">
+            <div class="trust-item">
+              <span class="material-icons">verified_user</span>
+              Identificação empresarial disponível
+            </div>
+            <div class="trust-item">
+              <span class="material-icons">support_agent</span>
+              Atendimento humano
+            </div>
+            <div class="trust-item">
+              <span class="material-icons">lock</span>
+              Comunicação responsável
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Opções de atendimento">
+          <h2>Como podemos orientar?</h2>
+          <p>Escolha o assunto relacionado ao atendimento.</p>
+
+          <div class="service-option">
+            <span class="material-icons">receipt_long</span>
+            <div>
+              <strong>Solicitação de segunda via</strong>
+              <span>Orientação sobre os dados e canais normalmente necessários para solicitar um novo boleto.</span>
+            </div>
+          </div>
+
+          <div class="service-option">
+            <span class="material-icons">event</span>
+            <div>
+              <strong>Informações de vencimento</strong>
+              <span>Suporte para compreender datas, informações exibidas no documento e próximos passos.</span>
+            </div>
+          </div>
+
+          <div class="service-option">
+            <span class="material-icons">help_outline</span>
+            <div>
+              <strong>Dúvidas de atendimento</strong>
+              <span>Esclarecimentos gerais relacionados ao processo de solicitação.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-light" id="servicos">
+      <div class="container">
+        <div class="section-heading">
+          <small>Atendimento</small>
+          <h2>Orientação clara para sua solicitação</h2>
+          <p>
+            Nosso atendimento é voltado a esclarecer o processo e auxiliar o usuário a identificar as informações necessárias para solicitar a segunda via.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">
+              <span class="material-icons">person</span>
+            </div>
+            <h3>Atendimento individual</h3>
+            <p>
+              Orientação para solicitações relacionadas a contratos ou cadastros individuais.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">
+              <span class="material-icons">groups</span>
+            </div>
+            <h3>Atendimento familiar</h3>
+            <p>
+              Esclarecimento sobre solicitações envolvendo mais de um beneficiário ou integrante vinculado.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">
+              <span class="material-icons">business</span>
+            </div>
+            <h3>Atendimento empresarial</h3>
+            <p>
+              Orientação inicial para empresas que precisam localizar os canais apropriados de atendimento.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <div class="section-heading">
+          <small>Como funciona</small>
+          <h2>Um atendimento simples e transparente</h2>
+          <p>
+            Antes de iniciar, tenha em mãos apenas as informações necessárias para explicar sua solicitação.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <h3>Entre em contato</h3>
+            <p>
+              Inicie uma conversa pelo canal de atendimento informado nesta página.
+            </p>
+          </article>
+
+          <article class="step">
+            <h3>Explique sua necessidade</h3>
+            <p>
+              Informe se deseja orientação sobre segunda via, vencimento ou dados do documento.
+            </p>
+          </article>
+
+          <article class="step">
+            <h3>Receba as orientações</h3>
+            <p>
+              Nossa equipe indicará os próximos passos disponíveis de acordo com as informações apresentadas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="empresa">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="imagens/familia.png" alt="Pessoa acessando um canal de atendimento online">
+        </div>
+
+        <div class="about-content">
+          <h2>Quem presta este atendimento</h2>
+          <p>
+            Este site pertence à <strong>Jose Henrique Avanzi Sociedade Individual de Advocacia</strong>, inscrita no CNPJ nº <strong>59.440.937/0001-20</strong>.
+          </p>
+          <p>
+            A página tem finalidade informativa e de atendimento. Nosso trabalho consiste em oferecer orientação e suporte ao usuário durante sua solicitação.
+          </p>
+
+          <div class="notice-box">
+            <strong>Aviso de transparência:</strong> este site não se apresenta como portal oficial de operadora, banco ou instituição emissora. A emissão e a validação definitiva de documentos dependem dos canais e sistemas da instituição responsável.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="duvidas">
+      <div class="container">
+        <div class="section-heading">
+          <small>Dúvidas frequentes</small>
+          <h2>Informações antes de iniciar o atendimento</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Este site é o portal oficial da instituição emissora?</summary>
+            <p>
+              Não. Esta página pertence à Jose Henrique Avanzi Sociedade Individual de Advocacia e oferece orientação ao usuário. A emissão oficial depende da instituição responsável pelo documento.
+            </p>
+          </details>
+
+          <details>
+            <summary>Quais informações podem ser necessárias?</summary>
+            <p>
+              Isso depende da solicitação. Durante o atendimento, serão informados os dados estritamente necessários para compreender e orientar o pedido.
+            </p>
+          </details>
+
+          <details>
+            <summary>O atendimento garante a emissão do boleto?</summary>
+            <p>
+              Não. O atendimento oferece orientação e suporte. A disponibilidade, emissão e validação do documento dependem da instituição responsável.
+            </p>
+          </details>
+
+          <details>
+            <summary>Como são tratados os dados informados?</summary>
+            <p>
+              Os dados devem ser utilizados somente para a finalidade do atendimento, conforme os princípios de necessidade, segurança e transparência previstos na legislação aplicável.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <h2>Precisa de orientação?</h2>
+          <p>
+            Fale com nossa equipe para esclarecer dúvidas relacionadas à solicitação de segunda via de boleto.
+          </p>
+          <a class="btn btn-primary" href="https://api.whatsapp.com/send/?phone=5514982312119&text=Olá%2C%20gostaria%20de%20orientação%20sobre%20segunda%20via%20de%20boleto.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
+            <span class="material-icons">chat</span>
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="legal-section section-light" id="informacoes-legais">
+      <div class="container legal-grid">
+        <article class="legal-card" id="termos">
+          <h2>Termos de uso</h2>
+          <p>
+            Este site fornece informações e um canal de contato para orientação. O uso da página não representa garantia de emissão, aprovação, desconto, negociação ou resultado específico.
+          </p>
+          <p>
+            O usuário é responsável por fornecer informações verdadeiras e por confirmar os dados de qualquer documento diretamente com a instituição responsável antes de efetuar pagamentos.
+          </p>
+        </article>
+
+        <article class="legal-card" id="privacidade">
+          <h2>Política de privacidade</h2>
+          <p>
+            Informações fornecidas durante o atendimento devem ser tratadas apenas para compreender e responder à solicitação apresentada.
+          </p>
+          <p>
+            Não informe senhas bancárias, códigos de autenticação, token de segurança ou dados que não sejam necessários ao atendimento.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Jose Henrique Avanzi Sociedade Individual de Advocacia</h3>
+          <p>
+            Canal de orientação e atendimento para solicitações relacionadas à segunda via de boleto.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Links</h4>
+          <ul class="footer-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li><a href="#termos">Termos de uso</a></li>
+            <li><a href="#privacidade">Política de privacidade</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Dados da empresa</h4>
+          <p>
+            CNPJ: 59.440.937/0001-20<br>
+            Rua Sampaio Viana, 125<br>
+            Paraíso — São Paulo/SP<br>
+            CEP 04004-000<br>
+            Telefone: (14) 98231-2119
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Jose Henrique Avanzi Sociedade Individual de Advocacia. Todos os direitos reservados.
       </div>
     </div>
+  </footer>
 
-    <div class="bloco-informacoes-rodape">
-      <h4>Serviços</h4>
-      <ul>
-        <li><a href="#sessao-servicos-regularizacao">Renegociação de Dívida</a></li>
-        <li><a href="#sessao-detalhes-boletos">2ª Via de Boleto</a></li>
-        <li><a href="#sessao-detalhes-boletos">Quitar Contrato</a></li>
-        <li><a href="#sessao-detalhes-boletos">Atendimento Especializado</a></li>
-      </ul>
-    </div>
+  <a class="whatsapp-float" href="https://api.whatsapp.com/send/?phone=5514982312119&text=Olá%2C%20gostaria%20de%20orientação%20sobre%20segunda%20via%20de%20boleto.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <span class="material-icons">chat</span>
+  </a>
 
-    <div class="bloco-informacoes-rodape">
-      <h4>Informações</h4>
-      <ul>
-        <li><a href="#">Dúvidas Frequentes</a></li>
-        <li><a href="#">Termos de Uso</a></li>
-        <li><a href="#">Política de Privacidade</a></li>
-      </ul>
-    </div>
+  <script>
+    const mobileButton = document.querySelector(".mobile-button");
+    const mainMenu = document.getElementById("main-menu");
 
-    <div class="bloco-informacoes-rodape bloco-contato-rodape">
-      <h4>Contato</h4>
-      <p>Entre em contato para orientações sobre renegociação e regularização de contratos.</p>
-      <p style="line-height:1.6;">
-        CNPJ: 59.440.937/0001-20<br>
-        Rua Sampaio Viana, 125<br>
-        Bairro Paraiso - São Paulo/SP - CEP 04004-000
-      </p>
-    </div>
-  </div>
+    mobileButton.addEventListener("click", function () {
+      const opened = mainMenu.classList.toggle("open");
+      mobileButton.setAttribute("aria-expanded", String(opened));
+    });
 
-  <div class="texto-legislacao-rodape">
-    <p><strong>Razão Social:</strong> Jose Henrique Avanzi Sociedade Individual de Advocacia</p>
-    <p><strong>CNPJ:</strong> 59.440.937/0001-20</p>
-    <p><strong>Endereço:</strong> Rua Sampaio Viana, 125 - Bairro Paraiso - São Paulo - SP - 04004-000</p>
-  </div>
-
-  <div class="assinatura-final-rodape">
-    <p>© 2025 Jose Henrique Avanzi Sociedade Individual de Advocacia. Todos os direitos reservados.</p>
-  </div>
-</footer>
-
-<a href="https://api.whatsapp.com/send/?phone=5514982312119&text=Ol%C3%A1%2C+gostaria+de++atendimento+%21&type=phone_number&app_absent=0" style="
-  position: fixed;
-  bottom: 150px;
-  right: 20px;
-  z-index: 9999;
-" target="_blank">
-  <img
-    alt="Atalho para conversa no WhatsApp"
-    title="Clique para iniciar atendimento pelo WhatsApp"
-    src="imagens/whatsapp.png"
-    style="width: 60px; height: 60px;"/>
-</a>
+    document.querySelectorAll("#main-menu a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mainMenu.classList.remove("open");
+        mobileButton.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
 </body>
 </html>
